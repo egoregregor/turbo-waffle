@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         cc anti-cheat
 // @namespace    http://tampermonkey.net/
-// @version      2024-01-18
+// @version      2024-01-28
 // @description  remove fill-solution button
 // @author       egor
-// @match        https://codecombat.com/play/*
+// @match        https://codecombat.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=codecombat.com
 // @grant        none
 // ==/UserScript==
@@ -19,5 +19,5 @@
         }
     }
 
-    setInterval(removeButton, 1);
+    setInterval(removeButton, 100);
 })();
