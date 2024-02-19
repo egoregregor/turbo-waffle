@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         cc anti-cheat
+// @name         cc anti-cheat 2
 // @namespace    http://tampermonkey.net/
-// @version      2024-01-28
+// @version      2024-02-19
 // @description  remove fill-solution button
 // @author       egor
 // @match        https://codecombat.com/*
@@ -13,10 +13,18 @@
     'use strict';
 
     function removeButton() {
-        var fillSolutionButton = document.getElementById('fill-solution');
+
+        var fillSolutionButton = document.querySelector('.fill-solution');
         if (fillSolutionButton) {
             fillSolutionButton.parentNode.removeChild(fillSolutionButton);
         }
+
+        var actionHelps = document.querySelectorAll('.action-help');
+        actionHelps.forEach(function(actionHelp) {
+        if (actionHelp.textContent.trim() === 'Replace current code with sample solution') {
+            actionHelp.parentNode.removeChild(actionHelp);
+        }
+        });
     }
 
     setInterval(removeButton, 100);
